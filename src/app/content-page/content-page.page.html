@@ -1,0 +1,397 @@
+
+<!-- CSS only -->
+<!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script-->
+  <ion-button (click)="content_menu()" color="success" id="content-menu">
+  (_) 
+  </ion-button>
+  <h1 style="margin-left:100px; margin-top:-35px; color:red;">Angular Ionic tutorial</h1>
+   
+   <div #mySidenav style="overflow-y: scroll; margin-top:0px; height:100%; z-index: 1; color:red; display:none; background-color:grey;  position: fixed; ">
+      <p style="margin-left:200px; color:white;"><a href="content-page" (click)="close_menu()" style="color:white;">X</a></p>
+      <div (click)="angfundamentals()" style="margin-left:20px; color:gold;">typescript basics</div>
+      <div style="display:none;" #angfundment></div>
+      <br>
+      <div (click)="date1212021()" style="margin-left:20px; color:gold;">date-12/1/2021</div>
+      <div style="display:none;" #dt1212021></div>
+  </div>
+
+<ion-content>
+  <!--nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h1 style="color:white;">Angular CURD</h1>
+        <div class="d-flex">
+      
+          <button type="button" (click)="add_Emp()" style=" height:30px; background-color:green; color:white;">
+          Add Employee
+        </button>
+        </div>
+    </div>
+</nav>
+
+
+
+<div id="displayinpdetails">
+<ion-input id="ioninput" #empid value="Employee Id"></ion-input>
+<ion-input id="ioninput" #fn value="First Name"></ion-input>
+<ion-input id="ioninput" #ln value="Last Name"></ion-input>
+<ion-input id="ioninput" #eid value="Email Id "></ion-input>
+<ion-input id="ioninput" #mob value="Mobile No"></ion-input>
+  <ion-button (click)="add_Emp(empid.value,fn.value,ln.value,eid.value,mob.value)"  color="success" id="addemp-bnn"   >Add Employee </ion-button>
+
+</div>
+
+
+<table class="table mt-3">
+<thead>
+<th style="color:red;" scope="col">Employee Id &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">First Name &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">Last Name &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">Email Id &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">Mobile No &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">Salary &nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="color:red;" scope="col">Action &nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Deepu</td>
+<td>Honey</td>
+<td>ratnadeepdirsipam@gmail.com</td>
+<td>9999999999</td>
+<td>Rs 15000</td>
+<td>
+<button class="btn btn-info">Edit</button>
+<button class="btn btn-danger mx-3">Delete</button>
+</td>
+</tr>
+</tbody>
+</table-->
+
+
+
+<div class="container">
+<h1 style="color:red; text-align:center;">fetching all the team details from JSON file</h1>
+<table>
+<thead>
+<th>name </th>
+<th>id</th>
+</thead>
+<tbody>
+<tr *ngFor="let team of teams">
+<td>{{team.name}}</td>
+<td>{{team.id}}</td>
+</tr>
+</tbody>
+</table>
+<!--p *ngFor="let item of student">{{ item.name }} | {{item.id}} </p-->
+</div>
+
+<div>
+<h1 style="color:red; text-align:center;">reciving data from login page</h1>
+<h1 style="color:green; text-align:center;">{{rdfl}}</h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<div (click)="jsonfetchdata()" style="color:red; text-align:center;">tutorial for Fetching JSON data</div>
+<br>
+<div (click)="passdata_ptop()" style="color:red; text-align:center;">tutorial for pass data from one page to another page</div>
+<br><br>
+<div #passdtopd style="display:none;">
+<ul>
+<li style="color:orange;">navigate from one page to another page using href</li>
+<li style="color:orange;">navigate from one page to another page using navcontroller</li>
+<li style="color:orange;">pass data while navigating page1 to page2</li>
+<li style="color:orange;">Receving the data from  page2</li>
+</ul>
+<p style="color:Brown; margin-left:5px;">navigate from one page to another page</p>
+<p style="color:green; margin-left:30px;">
+{{nuh1}}<br>
+{{nuh2}}<br>
+</p>
+
+<p style="color:Brown; margin-left:5px;">navigate from one page to another page using navcontroller</p>
+<p style="color:green; margin-left:30px;">
+{{navcontr1}}
+</p>
+<h1 style="margin-left:150px; color:green;">|</h1>
+<p style="color:DarkSlateBlue; margin-left:10px;">declare a private variable in constructor</p>
+<p style="color:green; margin-left:30px;">
+{{navconstruct}}
+</p>
+<h1 style="margin-left:150px; color:green;">|</h1>
+<p style="color:DarkSlateBlue; margin-left:10px;">create a method called "gotonextPage()"</p>
+<p style="color:green; margin-left:30px;">
+{{navmethod}}
+</p>
+<h1 style="margin-left:150px; color:green;">|</h1>
+<p style="color:DarkSlateBlue; margin-left:10px;">bind this method in button element or div element "gotonextPage()"</p>
+<p style="color:green; margin-left:30px;">
+{{navmethod1}}
+</p>
+<p style="color:Brown; margin-left:5px;">pass data while navigating page1 to page2</p>
+<p style="color:green; margin-left:30px;">
+add this line in method using comma ","
+</p>
+<p style="color:green; margin-left:30px;">
+{{namepass}}<br>
+{{addpassd}}
+</p>
+<p style="color:green; margin-left:30px;">
+{{mpassd}}
+</p>
+<p style="color:Brown; margin-left:5px;">Receving the data from page2</p>
+<p style="color:green; margin-left:30px;">
+{{recdataimport}}
+</p>
+<p style="color:Brown; margin-left:5px;">create a private variavle in constructor in page2</p>
+<p style="color:green; margin-left:30px;">
+{{reciveconstructor}}
+</p>
+<p style="color:Brown; margin-left:5px;">reciving the data using below method</p>
+<p style="color:green; margin-left:30px;">
+{{recivedatajson}}
+</p>
+
+</div>
+<div #jsontut style="display:none;">
+<ul>
+<li style="color:orange;">Create JSON File</li>
+<li style="color:orange;">Importing a json file to "content-page.page.ts"</li>
+<li style="color:orange;">create a interface to help fetch data </li>
+<li style="color:orange;">create an array object for data binding</li>
+<li style="color:orange;">create a json-typings.d.ts file to help read json</li>
+<li style="color:orange;">create UI in "content-page.page.html"</li>
+<li style="color:orange;">get data from JSON file</li>
+<li style="color:orange;">Use ngFor directive</li>
+<li style="color:orange;">get data from JSON file into Table format</li>
+<!--li style="color:orange;"></li-->
+</ul>
+<p style="color:Brown; margin-left:5px;">Creating a json file "team.json"</p>
+<p style="color:green; margin-left:10px;">
+{{ jsondisplay1 }}<br><br>
+{{ jsondisplay2 }}<br>
+{{ jsondisplay3 }}<br>
+{{ jsondisplay4 }}<br>
+{{ jsondisplay5 }}<br>
+{{ jsondisplay6 }}<br>
+{{ jsondisplay7 }}<br>
+{{ jsondisplay8 }}<br>
+{{ jsondisplay9 }}<br>
+{{ jsondisplay10 }}<br>
+{{ jsondisplay11 }}<br><br>
+{{ jsondisplay12 }}<br>
+</p>
+<p style="color:Brown; margin-left:5px;">Importing a json file to content-page.page.ts</p>
+<p style="color:green; margin-left:30px;">import teamd from './team.json';</p>
+<p style="color:Brown; margin-left:5px;">create a interface to help fetch data </p>
+<p style="color:green; margin-left:50px;">
+{{ intefacedisplay1 }}<br>
+{{ intefacedisplay2 }}<br>
+{{ intefacedisplay3 }}<br>
+{{ intefacedisplay4 }}<br>
+</p>
+<p style="color:Brown; margin-left:5px;">create an array object for data binding</p>
+<p style="color:green; margin-left:30px;">
+ teams: team[] = teamd;
+</p>
+<p style="color:Brown; margin-left:5px;">create a json-typings.d.ts file to help read json</p>
+<p style="color:green; margin-left:50px;">
+{{jsonhelpread1}}<br>
+{{jsonhelpread2}}<br>
+{{jsonhelpread3}}<br>
+{{jsonhelpread4}}<br>
+</p>
+<p style="color:Brown; margin-left:5px;">create UI in "content-page.page.html"</p>
+<p style="color:green; margin-left:50px;">
+{{UiBind1}}<br>
+{{UiBind2}}<br>
+{{UiBind3}}<br>
+{{UiBind4}}<br>
+{{UiBind5}}<br>
+{{UiBind6}}<br>
+{{UiBind7}}<br>
+{{UiBind8}}<br>
+{{UiBind9}}<br>
+{{UiBind10}}<br>
+{{UiBind11}}<br>
+{{UiBind12}}<br>
+
+</p>
+<p style="color:Brown; margin-left:5px;">Use ngFor directive</p>
+<p style="color:green; margin-left:30px;">
+{{usengfordirective}}
+</p>
+<p style="color:Brown; margin-left:5px;">get data from JSON file into Table format</p>
+<p style="color:green; margin-left:50px;">
+{{UiBind1}}<br>
+{{UiBind2}}<br>
+{{UiBind3}}<br>
+{{UiBind4}}<br>
+{{UiBind5}}<br>
+{{UiBind6}}<br>
+{{UiBind7}}<br>
+{{UiBind8}}<br>
+{{UiBind9}}<br>
+{{UiBind10}}<br>
+{{UiBind11}}<br>
+{{UiBind12}}<br>
+</p>
+</div>
+</ion-content>
+<!--iframe height="100%" width="100%" src="https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fselect_course.html?alt=media&token=ee010fbc-9384-4f45-8939-d2abdb664994"></iframe-->
+
+<!--p style="color:orange;">1.working with variables</p>
+<ul>
+<li>variable is “a named space in the memory” that stores values</li>
+<li>it acts as a container for values in a program</li>
+<li>Variable names can contain alphabets and numeric digits</li>
+<li>They cannot contain spaces and special characters, except the underscore ( _ ) and the dollar ($) sign</li>
+<li>Variable names cannot begin with a digit</li>
+<li>Type Assertion in TypeScript</li>
+<li>Inferred Typing in TypeScript</li>
+<li>TypeScript Variable Scope</li>
+<ol>
+<li>Global Scope</li>
+<li>Class Scope</li>
+<li>Local Scope</li>
+</ol>
+
+<li>variable types</li>
+<ol>
+<li>var</li>
+<li>const</li>
+<li>let</li>
+</ol>
+<li>
+var name = "John";<br>
+var score1 = 50;<br>
+var score2 = 42.50;<br>
+var sum = score1 + score2;<br>
+console.log("name" + name);<br>
+console.log("first score: " + score1);<br>
+console.log("second score : " + score2);<br>
+console.log("sum of the scores: " + sum);<br>
+</li>
+
+<li>
+
+</li>
+<li>
+
+</li>
+</ul>
+
+<p style="color:orange;">2.working with datatypes</p>
+<ol>
+<li>number</li>
+<li>String</li>
+<li>boolean</li>
+<li>enum</li>
+<li>void</li>
+<li>null</li>
+<li>undefined</li>
+<li>any</li>
+<li>never</li>
+<li>Array</li>
+<li>tuple</li>
+</ol>
+
+<ol>
+<li style="color:green;">number</li>
+<ul>
+<li style="color:Maroon;">
+let first:number = 123; // number <br>
+let second: number = 0x37CF;  // hexadecimal<br>
+let third:number=0o377 ;      // octal<br>
+let fourth: number = 0b111001;// binary  <br>
+
+console.log(first);  // 123 <br>
+console.log(second); // 14287<br>
+console.log(third);  // 255<br>
+console.log(fourth); // 57 <br>
+</li>
+<li style="color:green;">Number Methods </li>
+<ol> 
+<li style="color:Maroon;">ToExponential() </li>
+<li style="color:Maroon;">toFixed()</li>
+<li style="color:Maroon;">toLocaleString()</li>
+<li style="color:Maroon;">toPrecision()</li>
+<li style="color:Maroon;">toString()</li>
+<li style="color:Maroon;">valueof()</li>
+</ol>
+</ul>
+<li>String</li>
+<li>boolean</li>
+<li>enum</li>
+<li>void</li>
+<li>null</li>
+<li>undefined</li>
+<li>any</li>
+<li>never</li>
+<li>Array</li>
+<li>tuple</li>
+</ol>
+</ion-content>
+
+<!--ion-app>
+    <ion-menu side="start" menuId="first" content-id="content1">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Navigate</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+        <ion-list>
+        <ion-item>
+        <ion-icon name='mail' slot="start"></ion-icon>
+        <ion-label>inbox</ion-label>
+        </ion-item>
+        </ion-list>
+          <p>hello</p>
+          <p>hello</p>
+          <p>hello</p>
+          <p>hello</p>
+        </ion-content>
+      </ion-menu>
+  <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app-->

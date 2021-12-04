@@ -1,0 +1,310 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>bootstrap all classes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <br>
+  <h1>common in bootstrap</h1>
+  <p style="color:green;">primary,secondary,success,info,warning,danger,light</p>
+  
+  <div class="container-fluid">
+      <br>
+<h1  style="color:brown;">Practise All Bootstrap Classes</h1>
+<p style="color:red;">Bootstrap Tables using class="table"</p>
+
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="container">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders to a table:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br><br><br><br>
+
+<div class="container">
+  <h2>Contextual Classes</h2>
+  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br><br><br><br>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>Basic Navbar Example</h3>
+  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+</div>
+<br><br><br><br><br><br><br><br>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>Inverted Navbar</h3>
+  <p>An inverted navbar is black instead of gray.</p>
+</div>
+<br><br><br><br><br><br><br><br>
+
+
+<div class="container">
+  <h2>Basic Progress Bar</h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+      <span class="sr-only">70% Complete</span>
+    </div>
+  </div></div><br><br><br><br><br><br><br><br>
+
+
+
+
+<div class="container">
+  <h2>Progress Bar With Label</h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+      70%
+    </div>
+  </div>
+</div></div><br><br><br><br><br><br><br><br>
+
+
+
+
+      <!--div class="row">
+        <div style="color:red;" class="col-3"> badge </div>
+        <div style="color:red;" class="col-3"> Alerts </div>
+        <div style="color:red;" class="col-3"> Bg Color </div>
+        <div style="color:red;" class="col-3"> Button </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge-pill </div>
+        <div class="col-3"> alert-secondary </div>
+        <div class="col-3"> bg-secondary </div>
+        <div class="col-3"> btn-secondary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+      </div>
+      <div class="row">
+        <div class="col-3"> badge </div>
+        <div class="col-3"> alert-primary </div>
+        <div class="col-3"> bg-primary </div>
+        <div class="col-3"> btn-primary </div>
+        <h1 style="color:orange; text-align:center;">classes in bootstrap</h1>
+    <div class="row">
+        <div style="color:red;" class="col-3"> badge </div>
+        <div style="color:red;" class="col-3"> Alerts </div>
+        <div style="color:red;" class="col-3"> Bg Color </div>
+        <div style="color:red;" class="col-3"> Button </div>
+    </div>
+
+    <div class="row">
+      <div style="color:red;" class="col-3"> text </div>
+      <div style="color:red;" class="col-3"> button Modifier </div>
+      <div style="color:red;" class="col-3"> button group </div>
+      <div style="color:red;" class="col-3"> button outline </div>
+  </div>
+
+  <div class="row">
+    <div style="color:red;" class="col-3"> listgroup </div>
+    <div style="color:red;" class="col-3"> table </div>
+    <div style="color:red;" class="col-3"> Button group </div>
+    <div style="color:red;" class="col-3"> NavBar </div>
+  </div>
+
+  <div class="row">
+    <div style="color:red;" class="col-3"> Form </div>
+    <div style="color:red;" class="col-3"> Utility Display </div>
+    <div style="color:red;" class="col-3"> Button Group </div>
+    <div style="color:red;" class="col-3"> Form input </div>
+  </div>
+
+  <div class="row">
+    <div style="color:red;" class="col-3"> Modal </div>
+    <div style="color:red;" class="col-3"> carousel </div>
+    <div style="color:red;" class="col-3"> cards </div>
+    <div style="color:red;" class="col-3"> misc </div>
+  </div>
+
+  <div class="row">
+    <div style="color:red;" class="col-3"> listgroup </div>
+    <div style="color:red;" class="col-3"> table </div>
+    <div style="color:red;" class="col-3"> Button group </div>
+    <div style="color:red;" class="col-3"> NavBar </div>
+  </div>
+      </div-->
+
+     
+  
+  
+      
+</ion-content>

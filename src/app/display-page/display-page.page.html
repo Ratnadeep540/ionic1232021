@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+  <div id="circle">
+  <h1 id="ctext">SI</h1>
+  
+  </div>
+  <p style="margin-:top-20px; color:grey;" id="subname">Business Analyst</p>
+    <ion-title id="saname">Santosh I</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ </div-->
+<ion-content>
+
+<!--div>{{ htmlStr }}</div-->
+<div #rating></div>
+<div id="horstar" [innerHTML]="htmlStr"></div>
+<div style="" id="center-cont">
+<h1>
+Domain:
+ </h1>
+ 
+        <div id="rating1" #rating01 style="color:grey; font-size:2em;" (click)="ratingt01()">&#9733;</div>
+        <div id="rating2" #rating02 style="color:grey; font-size:2em;" (click)="ratingt02()">&#9733;</div>
+        <div id="rating3" #rating03 style="color:grey; font-size:2em;" (click)="ratingt03()">&#9733;</div>
+        <div id="rating4" #rating04 style="color:grey; font-size:2em;" (click)="ratingt04()">&#9733;</div>
+        <div id="rating5" #rating05 style="color:grey; font-size:2em;" (click)="ratingt05()">&#9733;</div>
+  
+<h1>
+Techinical:
+ </h1>
+        <div id="rating1" #rating11 style="color:grey; font-size:2em;" (click)="ratingt11()">&#9733;</div>
+        <div id="rating2" #rating12 style="color:grey; font-size:2em;" (click)="ratingt12()">&#9733;</div>
+        <div id="rating3" #rating13 style="color:grey; font-size:2em;" (click)="ratingt13()">&#9733;</div>
+        <div id="rating4" #rating14 style="color:grey; font-size:2em;" (click)="ratingt14()">&#9733;</div>
+        <div id="rating5" #rating15 style="color:grey; font-size:2em;" (click)="ratingt15()">&#9733;</div>
+
+<h1>
+Communication:
+ </h1>
+         <div id="rating1" #rating21 style="color:grey; font-size:2em;" (click)="ratingt21()">&#9733;</div>
+        <div id="rating2" #rating22 style="color:grey; font-size:2em;" (click)="ratingt22()">&#9733;</div>
+        <div id="rating3" #rating23 style="color:grey; font-size:2em;" (click)="ratingt23()">&#9733;</div>
+        <div id="rating4" #rating24 style="color:grey; font-size:2em;" (click)="ratingt24()">&#9733;</div>
+        <div id="rating5" #rating25 style="color:grey; font-size:2em;" (click)="ratingt25()">&#9733;</div>
+
+<h1>
+Attitude:
+ </h1>
+         <div id="rating1" #rating31 style="color:grey; font-size:2em;" (click)="ratingt31()">&#9733;</div>
+        <div id="rating2" #rating32 style="color:grey; font-size:2em;" (click)="ratingt32()">&#9733;</div>
+        <div id="rating3" #rating33 style="color:grey; font-size:2em;" (click)="ratingt33()">&#9733;</div>
+        <div id="rating4" #rating34 style="color:grey; font-size:2em;" (click)="ratingt34()">&#9733;</div>
+        <div id="rating5" #rating35 style="color:grey; font-size:2em;" (click)="ratingt35()">&#9733;</div>
+
+
+ <h1>
+Work Association:
+<ion-input id="ioninput" #inppassword value=""></ion-input>
+ </h1>
+ <h1>
+Projects:
+<ion-input id="ioninput" #inppassword value=""></ion-input>
+ </h1>
+ <h1>
+Skills:
+<ion-input id="ioninput" #inppassword value=""></ion-input>
+ </h1>
+ <h1>
+Duration:
+<ion-input id="ioninput" #inppassword value=""></ion-input>
+ </h1>
+<h1>
+Feedback:
+ </h1>
+ <textarea style="margin-left:10px; width:300px;"></textarea>
+
+<ion-button href="display-page" id="loginbtnn">submit</ion-button>
+
+</div>
+</ion-content>

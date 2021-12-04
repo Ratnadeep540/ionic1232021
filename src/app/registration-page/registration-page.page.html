@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="regcss">registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div class="container" style="text-align:center; width:100%; border:2px solid DarkSlateGrey; background-color:DarkSlateGrey; margin-top:100px;"> 
+<div  id="inpcss" style="text-align:center;  margin-top:50px;">
+    <ion-input id="ioninput" placeholder="email" #inpemail value=""></ion-input>
+    <ion-input id="ioninput" placeholder="name" #inpname value=""></ion-input>
+    <ion-input id="ioninput" placeholder="id" #inpuserid value=""></ion-input>
+    <ion-input id="ioninput" placeholder="password" #inppassword value=""></ion-input>
+    <ion-input id="ioninput" placeholder="retype password" #inpretypepass value=""></ion-input>
+</div>
+<div class="container">
+<div>
+  <ion-button id="registerbtnn" (click)="register(inpemail.value,inpname.value,inpuserid.value,inppassword.value)" color="success"    >Register</ion-button>
+</div>
+<div>
+  <p style="float:left; color:white;">if you already have an account click </p>
+  <ion-button color="success" id="ifaccbtn" (click)="Iuha()" >signin</ion-button>
+</div> 
+</div>
+</div>
+</ion-content>

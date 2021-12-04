@@ -1,0 +1,44 @@
+.my-custom-menu {
+    --width: 500px;
+  }
+  #content-menu{
+    width:20px;
+    height:30px;
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  #mySidenav1 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  #ioninput{
+    --ion-background-color:Tomato;
+    color:grey;
+    left:20px;
+    border:2px solid green;
+    height:30px;
+    width:300px;
+    top:5px;
+    
+    border-radius:7px;
+  }
+
+  #addemp-bnn{
+    margin-top:10px;
+    margin-left:30px;
+   
+    border-radius:20px;
+    
+}

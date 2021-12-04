@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html>
+	<head Access-Control-Allow-Origin: *>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>spoken english 3d class</title>
+		
+		<style>
+			.label {
+				color: #FFF;
+				font-family: sans-serif;
+				padding: 2px;
+				background: rgba( 0, 0, 0, .6 );
+                depth:50px;
+                transform : rotateX(90deg) translateY(15px) translateZ(-480px);
+			}
+            #google_translate_element{
+                height: 50px;
+                text-align:center;
+            }
+			
+
+		</style>
+	</head>
+	<body>
+	
+	<video id="video" loop muted crossOrigin="anonymous" playsinline style="display:none"
+	>
+			<source src="">
+			<source src="">
+		</video>
+	
+	<!--script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script-->
+
+	<!--script type="text/javascript" src="https://ksthreejs.s3.ap-south-1.amazonaws.com/lngtranslate.js"></script-->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<div id="ih" crossOrigin="anonymous" style="display:none">
+<div id="google_translate_element" ></div>
+<div id="topicvalues">
+
+<div>
+</div>
+
+
+
+<script type="module" src="https://ksthreejs.s3.ap-south-1.amazonaws.com/modules/all_modules.js"></script>
+		<script type="module" crossorigin="anonymous">
+/*
+@Configuration
+@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("POST","GET","OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(false).maxAge(3600);
+
+    }
+}		
+*/
+//console.log("honey"+database);
+
+
+//yourFunction();
+//https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/classroomcontentdata.js
+        
+"use strict";var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a};
+//! annyang
+//! version : 2.6.0
+//! author  : Tal Ater @TalAter
+//! license : MIT
+//! https://www.TalAter.com/annyang/
+!function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.annyang=b(a)}):"object"===("undefined"==typeof module?"undefined":_typeof(module))&&module.exports?module.exports=b(a):a.annyang=b(a)}("undefined"!=typeof window?window:void 0,function(a,b){var c,d=a.SpeechRecognition||a.webkitSpeechRecognition||a.mozSpeechRecognition||a.msSpeechRecognition||a.oSpeechRecognition;if(!d)return null;var e,f,g=[],h={start:[],error:[],end:[],soundstart:[],result:[],resultMatch:[],resultNoMatch:[],errorNetwork:[],errorPermissionBlocked:[],errorPermissionDenied:[]},i=0,j=0,k=!1,l="font-weight: bold; color: #00f;",m=!1,n=!1,o=/\s*\((.*?)\)\s*/g,p=/(\(\?:[^)]+\))\?/g,q=/(\(\?)?:\w+/g,r=/\*\w+/g,s=/[\-{}\[\]+?.,\\\^$|#]/g,t=function(a){return a=a.replace(s,"\\$&").replace(o,"(?:$1)?").replace(q,function(a,b){return b?a:"([^\\s]+)"}).replace(r,"(.*?)").replace(p,"\\s*$1?\\s*"),new RegExp("^"+a+"$","i")},u=function(a){for(var b=arguments.length,c=Array(b>1?b-1:0),d=1;d<b;d++)c[d-1]=arguments[d];a.forEach(function(a){a.callback.apply(a.context,c)})},v=function(){return e!==b},w=function(a,b){a.indexOf("%c")!==-1||b?console.log(a,b||l):console.log(a)},x=function(){v()||c.init({},!1)},y=function(a,b,c){g.push({command:a,callback:b,originalPhrase:c}),k&&w("Command successfully loaded: %c"+c,l)},z=function(a){u(h.result,a);for(var b,c=0;c<a.length;c++){b=a[c].trim(),k&&w("Speech recognized: %c"+b,l);for(var d=0,e=g.length;d<e;d++){var f=g[d],i=f.command.exec(b);if(i){var j=i.slice(1);return k&&(w("command matched: %c"+f.originalPhrase,l),j.length&&w("with parameters",j)),f.callback.apply(this,j),void u(h.resultMatch,b,f.originalPhrase,a)}}}u(h.resultNoMatch,a)};return c={init:function(l){var o=!(arguments.length>1&&arguments[1]!==b)||arguments[1];e&&e.abort&&e.abort(),e=new d,e.maxAlternatives=5,e.continuous="http:"===a.location.protocol,e.lang="en-US",e.onstart=function(){n=!0,u(h.start)},e.onsoundstart=function(){u(h.soundstart)},e.onerror=function(a){switch(u(h.error,a),a.error){case"network":u(h.errorNetwork,a);break;case"not-allowed":case"service-not-allowed":f=!1,(new Date).getTime()-i<200?u(h.errorPermissionBlocked,a):u(h.errorPermissionDenied,a)}},e.onend=function(){if(n=!1,u(h.end),f){var a=(new Date).getTime()-i;j+=1,j%10===0&&k&&w("Speech Recognition is repeatedly stopping and starting. See http://is.gd/annyang_restarts for tips."),a<1e3?setTimeout(function(){c.start({paused:m})},1e3-a):c.start({paused:m})}},e.onresult=function(a){if(m)return k&&w("Speech heard, but annyang is paused"),!1;for(var b=a.results[a.resultIndex],c=[],d=0;d<b.length;d++)c[d]=b[d].transcript;z(c)},o&&(g=[]),l.length&&this.addCommands(l)},start:function(a){x(),a=a||{},m=a.paused!==b&&!!a.paused,f=a.autoRestart===b||!!a.autoRestart,a.continuous!==b&&(e.continuous=!!a.continuous),i=(new Date).getTime();try{e.start()}catch(a){k&&w(a.message)}},abort:function(){f=!1,j=0,v()&&e.abort()},pause:function(){m=!0},resume:function(){c.start()},debug:function(){var a=!(arguments.length>0&&arguments[0]!==b)||arguments[0];k=!!a},setLanguage:function(a){x(),e.lang=a},addCommands:function(b){var c;x();for(var d in b)if(b.hasOwnProperty(d))if(c=a[b[d]]||b[d],"function"==typeof c)y(t(d),c,d);else{if(!("object"===("undefined"==typeof c?"undefined":_typeof(c))&&c.regexp instanceof RegExp)){k&&w("Can not register command: %c"+d,l);continue}y(new RegExp(c.regexp.source,"i"),c.callback,d)}},removeCommands:function(a){a===b?g=[]:(a=Array.isArray(a)?a:[a],g=g.filter(function(b){for(var c=0;c<a.length;c++)if(a[c]===b.originalPhrase)return!1;return!0}))},addCallback:function(c,d,e){var f=a[d]||d;"function"==typeof f&&h[c]!==b&&h[c].push({callback:f,context:e||this})},removeCallback:function(a,c){var d=function(a){return a.callback!==c};for(var e in h)h.hasOwnProperty(e)&&(a!==b&&a!==e||(c===b?h[e]=[]:h[e]=h[e].filter(d)))},isListening:function(){return n&&!m},getSpeechRecognizer:function(){return e},trigger:function(a){return c.isListening()?(Array.isArray(a)||(a=[a]),void z(a)):void(k&&w(n?"Speech heard, but annyang is paused":"Cannot trigger while annyang is aborted"))}}});
+//import { Application, AndroidApplication, isAndroid } from "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fsproudknowledgecontentdata%2Fnativescriptcore.js?alt=media&token=242b3ef8-a682-4659-aeb3-6580f2a8d2f8";
+            //import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
+            			    
+			//import { OrbitControls }  from 'https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fmodules%2FOrbitControls.js?alt=media&token=4e7fa975-0496-45ba-a928-db7e4c88e65a'; 
+			//import { TrackballControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/TrackballControls.js';
+			      //import { CSS3DRenderer, CSS3DObject } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/renderers/CSS3DRenderer.js';
+            //import { CSS3DRenderer, CSS3DObject } from 'https://ksthreejs.s3.ap-south-1.amazonaws.com/build/CSS3DRenderer.js';
+            
+            //import { CSS2DRenderer, CSS2DObject } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/renderers/CSS2DRenderer.js';
+            //import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js';
+			      //import { Stats } from 'https://ksthreejs.s3.ap-south-1.amazonaws.com/build/stats.module.js';
+
+//var url_string = window.location.href
+//var url = new URL(url_string);
+//var message= url.searchParams.get("message");
+
+let OrbitControlsjs = 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
+let threemodulejs = 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
+let TrackballControlsjs = 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/TrackballControls.js';
+let CSS3DRendererjs = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/build/CSS3DRenderer.js';
+let CSS2DRendererjs = 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/renderers/CSS2DRenderer.js';
+let GLTFLoaderjs = 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js';
+let ocsd = "OrbitControls.js";
+	let  THREE = await import(threemodulejs);
+    //let { OrbitControls } = await import(ocsd);
+	let { OrbitControls } = await import(OrbitControlsjs);
+	let {TrackballControls } = await import(TrackballControlsjs);
+	let {CSS3DRenderer, CSS3DObject } = await import(CSS3DRendererjs);
+	let {CSS2DRenderer, CSS2DObject } = await import(CSS2DRendererjs);
+	let {GLTFLoader} = await import(GLTFLoaderjs);
+/*
+//httpRequest.withCredentials = false;
+var xhr = new XMLHttpRequest();
+//xhr.open('GET', ocsd, true);
+xhr.open("POST", "/"+ocsd, true);
+//xhr.responseType = 'blob';
+//Send the proper header information along with the request
+/*
+xhr.setRequestHeader('Access-Control-Allow-Origin', 'HEAD');
+xhr.setRequestHeader('Access-Control-Allow-Origin', 'GET');
+xhr.setRequestHeader('Access-Control-Allow-Origin', 'POST');
+*/
+//xhr.header('Access-Control-Allow-Credentials', true);
+/*
+xhr.onreadystatechange = function() { // Call a function when the state changes.
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        // Request finished. Do processing here.
+    }
+}
+xhr.send("foo=bar&lorem=ipsum");
+// xhr.send(new Int8Array());
+// xhr.send(document);
+*/
+let addmod = [];
+
+// Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+  return text.match('<title>(.*)?</title>')[1];
+}
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // This is a sample server that supports CORS.
+  var url = 'http://html5rocks-cors.s3-website-us-east-1.amazonaws.com/index.html';
+
+  var xhr = createCORSRequest('POST', ocsd);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
+
+//makeCorsRequest();
+
+let imgsl = [];	
+let imageUrl;
+	 function downloadVideo(filename,d_url) 
+    {
+ 
+ let urlCreator;
+ var tag;
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', d_url, true);
+   //xhr.open('HEAD', d_url, true);
+   //xhr.open('POST', d_url, true);
+  xhr.responseType = 'blob';
+  //xhr.responseType = 'ArrayBuffer';
+  xhr.onload = function() {
+    urlCreator = window.URL || window.webkitURL;
+     imageUrl = urlCreator.createObjectURL(this.response);
+	console.log(imageUrl);
+     //imgsl.push("hello");
+	 
+	 //let { OrbitControls } = await import(imageUrl);
+    
+  };
+  xhr.onerror = err => {
+    alert('Failed to download picture');
+  };
+  xhr.send();
+  //console.log(xhr);
+  //return imageUrl;
+}
+//imgsl.push("hello");
+var hi = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/honeybirthday/IMG-20211124-WA0000.jpg';
+  var tjs1 = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/build/stats.module.js';  
+    //downloadVideo("OrbitControls.js",ocsd); 
+   //downloadVideo("stats.module.js",tjs1); 
+
+
+
+if(navigator.onLine == true)
+{
+mainapprunstop(navigator.onLine == true);
+//mainapprunstop(document.visibilityState = "prerender");
+
+}
+//console.log(imgsl);
+//mainfunctionstop()
+function mainfunctionstop()
+{
+
+	setTimeout(function() {
+		if(booleantruefalse)
+		{
+         console.log("online");
+		mainfunctionstop()
+		}
+		else if(booleantruefalse)
+		 {
+			 console.log("ofline");
+			 mainapprunstop(false);
+		 }
+
+    }, 2000);
+}
+
+//var string = document.visibilityState;
+
+// Set the name of the hidden property and the change event for visibility
+var hidden, visibilityChange;
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+
+function handleVisibilityChange() {
+  if (document[hidden]) {
+    
+	console.log("page is paused");
+    //location.reload(true);
+    mainapprunstop(false)
+
+
+  } else {
+    //videoElement.play();
+	//mainapprunstop(navigator.onLine == true);
+	console.log("page is resumed");
+    location.reload(true);
+    //mainapprunstop()
+  }
+}
+
+document.addEventListener(visibilityChange, handleVisibilityChange, false);
+
+function timedRefresh(time) {
+	setTimeout("location.reload(true);", time);
+}
+
+
+function mainapprunstop(navigatoronLinetrue)
+{
+if(navigatoronLinetrue)
+{
+
+
+// Initialize Firebase
+//let testfb = firebase.initializeApp(firebaseConfig);
+//let database = firebase.database();
+
+let remobj = [];
+let intclsmesh = [];
+let romovec = [];
+let intcubes = [];
+
+let c1 = "  1. Introduction How & What to learn english";
+let c2 = "  2. Types & kinds of Pronouns";
+let c3 = "  3. Question words in english";
+let c4 = "  4. Use of can in english";
+let c5 = "  5. Do or Does";
+let c6 = "  6. Will or Shall";
+let c7 = "  7. Am is Are in english";
+let c8 = "  8. Will be or Shall be";
+let c9 = "  9. usage of Was or Were";
+let c10 = "  10. Did or V2 usage";
+let c11 = " 11. Verb forms in Spoken english";
+let c12 = "  12. How and When to use Has & Have + V3";
+let c13 = "  13. How and When to use Had + V3";
+let c14 = "  14. Will Have or Shall Have";
+let c15 = "  15. Hasbeen or Have Been";
+
+let c16 = "  16. Use of Had Been";
+let c17 = "  17. Be, Being, Been";
+let c18 = "  18. combined sentences for practise";
+let c19 = "";
+let c20 = "";
+let c21 = "  1. Introduction How & What to learn english";
+let c22 = "  2. Types & kinds of Pronouns";
+let c23 = "";
+let c24 = "";
+let c25 = "";
+let c26 = "";
+let c27 = "";
+let c28 = "";
+let c29 = "";
+let c30 = "";
+
+let c31 = "  1. Introduction How & What to learn english";
+let c32 = "  2. Types & kinds of Pronouns";
+let c33 = "";
+let c34 = "";
+let c35 = "";
+let c36 = "";
+let c37 = "";
+let c38 = "";
+let c39 = "";
+let c40 = "";
+let c41 = "";
+let c42 = "";
+let c43 = "";
+let c44 = "";
+let c45 = "";
+let c46 = "";
+let c47 = "";
+let c48 = "";
+let c49 = "";
+let c50 = "";
+
+
+function dynavar(varname,len,valtype)
+{
+    for(let i = 1; i <= len; i++) 
+    { 
+    window[varname+i] = valtype; 
+	if(varname == "imgclass" )
+	{
+		imgclass[i] = varname+i;
+		//console.log(varname+i)
+		
+	}
+	else if(varname == "img_label")
+	{
+		img_label[i] = varname+i;
+		//console.log(varname+i)
+	}
+	else if(varname == "intclsmesh")
+	{
+		intclsmesh[i] = varname+i;
+		//console.log(varname+i)
+	}
+    } 
+}
+
+dynavar("commands",60,[]);
+dynavar("intclsmesh",90,"");
+
+
+
+let i = 0;
+let j = 0;
+let pnplusminus = 0;
+let incdec1 = 25;
+let incdec = 5;
+let clock;
+let delta;
+let vidmesh;
+let videolipst;
+let btn_label;
+let demotrigger,starttrigger,beforetrigger,nexttrigger,pageplustrigger,pageminustrigger,explaintrigger,practisetrigger;
+
+//Interface.t_t_s("welcome to Home page select the courses  ");
+//welcomem(messageteach);
+
+
+let checkcr = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fsproudknowledgecontentdata%2Fpronounimages%2Fcheck.png?alt=media&token=fb2a43e5-762e-43e3-a797-99ed674b5b7e";
+
+let chupebangaramayane  = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/%23Srivalli%20(Telugu)%20_%20Pushpa%20-%20The%20Rise%20_%20Allu%20Arjun%2C%20Rashmika%20_%20DSP%20_%20Sid%20Sriram.mp4?alt=media&token=7340f611-7e62-4682-b4db-65a59c4c7094";
+
+let bestpractise = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/best+practise.jpg";
+let bestpractise1 = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/bestpractise2.jpg";
+let spoken_english_classes = 'https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=2ef997f0-a7f0-46f5-9d12-9cb423263755';
+
+
+
+function speech_all_classes(speech_teach)
+{
+
+//Interface.t_t_s(speech_teach,"Deepu");
+//console.log(speech_teach)
+}
+let pronoun_I = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fsproudknowledgecontentdata%2Fpronounimages%2Fti1.png?alt=media&token=1125bbe1-3f3f-4d8d-b023-ae0e6c452981";
+let pronoun_we = "";
+let pronoun_you = "";
+let pronoun_they = "";
+let pronoun_he = "";
+let pronoun_she = "";
+let pronoun_it = "";
+
+function posttrigger1()
+{
+	return alert("trigger 1");
+}
+function posttrigger2()
+{
+	return alert("trigger 2");
+}
+//let varpt1 = posttrigger1();
+//let varpt2 = posttrigger1();
+//alltriggers(posttrigger1);
+function alltriggers(funtrig)
+{
+	funtrig()
+}
+
+function incNumber() {
+
+if (i < incdec) {
+i++;
+} else if (i = incdec) {
+i = 0;
+}
+//document.getElementById("display").innerHTML = dict[i-1];
+return i;
+
+}
+
+function decNumber() {
+
+if (i > 0) {
+--i;
+} else if (i = 0) {
+i = incdec;
+}
+//document.getElementById("display").innerHTML = dict[i];
+return i;
+}
+
+
+
+
+function incNumber1() {
+
+if (j < incdec1) {
+j++;
+} else if (j = incdec1) {
+j = 0;
+}
+//document.getElementById("display").innerHTML = dict[i-1];
+return j;
+
+}
+
+
+function decNumber1() {
+
+if (j > 0) {
+--j;
+} else if (j = 0) {
+j = incdec1;
+}
+//document.getElementById("display").innerHTML = dict[i];
+return j;
+}
+
+
+
+
+let pos = new THREE.Vector3(-1, 0, 0);
+let pos2 = new THREE.Vector3(1, 0, 0);
+let pos3 = new THREE.Vector3(0, -1, 0);
+let pos4 = new THREE.Vector3(0, 1, 0);
+let pos5 = new THREE.Vector3(0, 0, 1);
+let pos6 = new THREE.Vector3(0, 0, -1);
+let selectedObject = null;
+		//const raycaster = new THREE.Raycaster();
+let pointer = new THREE.Vector2();
+
+let model, skeleton, mixer;
+
+let crossFadeControls = [];
+			
+
+			let idleAction, walkAction, runAction;
+			let idleWeight, walkWeight, runWeight;
+			let actions, settings;
+			let root;
+			let singleStepMode = false;
+			let sizeOfNextStep = 0;
+
+            let mesh1,mesh2,mesh3,mesh4,mesh5;
+			let intersection,intersection1,intersection2,intersection3,intersection4;
+			let amount = parseInt( window.location.search.substr( 1 ) ) || 10;
+			let count = Math.pow( amount, 3 );
+
+			let raycaster = new THREE.Raycaster();
+			let raycaster1 = new THREE.Raycaster();
+			let raycaster2 = new THREE.Raycaster();
+			let raycaster3 = new THREE.Raycaster();
+			let raycaster4 = new THREE.Raycaster();
+			let raycaster5 = new THREE.Raycaster();
+			let mouse = new THREE.Vector2( 1, 1 );
+
+			let color = new THREE.Color();
+      
+
+
+let dictionurl = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fsktest.html?alt=media&token=d105caeb-6b71-4621-ad93-bc8ffcb101b2";                
+let lips = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Select_courses/Vgh2.gif";
+   
+let py_nav = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/firebase%2Fauth.html?alt=media&token=d3e51b88-ae03-4900-bf25-47a63155fb8c"; 
+function toString(v) { return "[ " + v.x + ", " + v.y + ", " + v.z + " ]"; }
+let removeo = [];
+let memoryo = [];
+let cubeuuid = [];
+let intclsgeometry;
+let intclsmaterial;
+let change_topics = document.getElementById( 'topicvalues' );
+let ivythsi = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fsubpron.jpg?alt=media&token=2f192fec-3967-4e85-ba34-0b5fa6f61559";
+let correcttick = `<img style="margin-top: -200px; width:50px;height:50px;  margin-left:10px;" src="https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fsproudknowledgecontentdata%2Fpronounimages%2Fcheck.png?alt=media&token=fb2a43e5-762e-43e3-a797-99ed674b5b7e"></img>`;
+let python_img = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Select_courses/python.png";
+let spoken_english_img = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Select_courses/spokeneng.png";
+
+
+
+			let camera, scene, renderer, labelRenderer;
+            let objects = [];
+			 clock = new THREE.Clock();
+			const textureLoader = new THREE.TextureLoader();
+
+			let moon;
+            let earth;
+
+            const EARTH_RADIUS = 1;
+				const MOON_RADIUS = 0.27;
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 200 );
+				camera.position.set( -2,2,23 );
+
+				scene = new THREE.Scene();
+        scene.background = new THREE.Color( "DarkSlateGray" );
+				//const raycaster = new THREE.Raycaster();
+
+				const dirLight = new THREE.AmbientLight( 0xffffff, 1 );
+				dirLight.position.set( -10, -10, -100 );
+				scene.add( dirLight );
+
+
+				//const axesHelper = new THREE.AxesHelper( 5 );
+				//scene.add( axesHelper );
+
+
+                renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				//renderer.outputEncoding = THREE.sRGBEncoding;
+				document.body.appendChild( renderer.domElement );
+				
+
+				labelRenderer = new CSS3DRenderer();
+				labelRenderer.setSize( window.innerWidth, window.innerHeight );
+				labelRenderer.domElement.style.position = 'absolute';
+				labelRenderer.domElement.style.top = '0px';
+				document.body.appendChild( labelRenderer.domElement );
+
+				const controls = new OrbitControls( camera, labelRenderer.domElement );
+				controls.minDistance = 5;
+				controls.maxDistance = 20000;
+                controls.target.set( 0, 0, - 0.2 );
+				//controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+				controls.screenSpacePanning=false;
+        		//controls.dampingFactor = 0.05;
+        		//controls.maxPolarAngle = Math.PI/2;
+				
+/*  				
+function xyz() {
+
+    var l = scene.children.length;
+
+    //remove everything
+    while (l--) {
+
+        if(scene.children[l] instanceof THREE.Camera) continue; //leave camera in the scene
+
+        scene.remove(scene.children[l]);
+
+    }
+
+    //reinitialise your stuff
+    init();
+
+}
+*/
+
+
+function annyang_test()
+{
+
+    if(annyang)
+        {
+            console.log("annayang in spoken english classroom3d");
+            commands1 = {};
+            //cmd1 = "hi honey";
+            commands1['bye honey'] = bye;
+            commands1["hi honey"] = hello;
+            commands1["yes"] = yesfun;
+            commands1["s"] = yesfun;
+
+            let q1 = "hello  can we start practise with examples. say yes";
+            function hello()
+            {
+                //var randomIndex = Math.round(Math.random() * messages.length);
+                //console.log(`%c ${messages[randomIndex]}`,'color: green; font-weight:bold;');
+                Interface.t_t_s(q1,"Deepu");
+            }
+
+            function yesfun()
+            {
+                //console.log("My name is Billy!");
+                var nxto = "click next button to proceed";
+                //tts(nxto);
+                Interface.t_t_s(nxto,"Deepu");
+            }
+            function bye()
+            {
+                var bie = "okay byee";
+                //tts(bie);
+                Interface.t_t_s(bie,"Deepu");
+				if(annyang)
+				{
+					annyang.abort();
+				}
+            }
+            function da1f()
+            {
+                //tts(cano);
+
+                var nxto = "click next button to proceed";
+                //tts(nxto);
+                Interface.t_t_s(nxto,"Deepu");
+            }
+
+
+
+
+            // Add Commands
+            annyang.addCommands(commands1);
+
+            // Start listening
+            annyang.start();
+            
+
+
+            annyang.addCallback('start', function() {onStart();});
+            annyang.addCallback('soundstart', function() {onSoundDetected();});
+            annyang.addCallback('soundend', function() {onSoundStop();});
+            annyang.addCallback('end', function() {onEnd();});
+
+
+            function onStart() {
+            console.log('started listening');
+            
+            }
+            function onSoundDetected() {
+            console.log('sound was detected');
+			//lipmove(lc2,16,20,-23);
+            
+
+            }
+            function onSoundStop() {
+            console.log('i hope you stop speaking');
+			//videolipst.pause();
+           
+            }
+            function onEnd() {
+            console.log('stop listening');
+            
+            }
+
+            var recognition = annyang.getSpeechRecognizer();
+
+            annyang.addCallback('result', function(phrases) {
+            console.log('Speech recognized. Possible sentences said:');
+            console.log(phrases);
+            intcls(-1,26,-20,25,2,2,mic,py_nav,true, "  "+phrases[0],0.5,0,0,"DarkSlateBlue","white");	
+			
+            });
+
+
+
+        
+        }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        window.addEventListener( 'resize', onWindowResize );
+
+const forward = "https://ksthreejs.s3.ap-south-1.amazonaws.com/tback.png";
+const backword = "https://ksthreejs.s3.ap-south-1.amazonaws.com/tnext.png";
+const teacher = "https://ksthreejs.s3.ap-south-1.amazonaws.com/913_165017.jpg";
+const mic = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/tmicrophone.png";
+let start_teach = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/start.jpg";
+const lc1 = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/lc1.mp4';
+	const lc = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/lipcrop.mp4';
+	const cl = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/croplips.mp4';
+	const lip2 = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/dtv1.mp4';
+	const lip1 = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/ezgif.com-gif-maker.mp4";
+	const lipsv = "https://ksthreejs.s3.ap-south-1.amazonaws.com/build/teachermodels/Vgh2.mp4";
+const v123 = "https://ksthreejs.s3.ap-south-1.amazonaws.com/build/teachermodels/3+Second+Video+Green.mp4";
+
+let lc2 = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/lc2.mp4';
+//lipmove();
+function lipmove(vidurl,vlx,vly,vlz)
+{
+	let lc2 = vidurl;
+	
+
+videolipst = document.getElementById( 'video' );
+//const video = document.createElement( 'video' );
+videolipst.src = lc2;
+
+
+//video = document.getElementById( 'video' );
+				
+					videolipst.play();
+				
+				
+				
+				//video.addEventListener( 'play', function () {
+
+				//	this.currentTime = 3;
+
+				//} );
+
+				//texture = new THREE.VideoTexture( video );
+const texture = new THREE.VideoTexture( videolipst );
+
+
+const geometry = new THREE.CircleGeometry( 1, 10 );
+
+
+
+				//const geometry = new THREE.BoxGeometry( 1,0.5,0 );
+				//const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+				//const material = new THREE.MeshPhongMaterial();
+                const material = new THREE.MeshPhongMaterial( {
+					specular: 0xffffff,
+					shininess: 5,
+					//map: textureLoader.load( icon ),
+                    //map: videoTexture.texture,
+                    map: texture,
+					normalScale: new THREE.Vector2( 0.85, 0.85 )
+				} );
+
+				vidmesh = new THREE.InstancedMesh( geometry, material, count );
+               
+                vidmesh.position.set( vlx,vly,vlz );
+                vidmesh.rotation.y = 0;//Math.PI/2 + rotate;
+				vidmesh.rotation.x = -0.1;
+
+				let i = 0;
+				const offset = ( amount - 1 ) / 2;
+
+				const matrix = new THREE.Matrix4();
+
+				//matrix.setPosition( offset - 5, offset - 0, offset - 0 );
+
+				vidmesh.setMatrixAt( 1, matrix );
+				vidmesh.setColorAt( 1, color );
+				vidmesh.scale.y=0.3;
+				vidmesh.scale.x=0.5;
+				vidmesh.scale.z=1;
+				scene.remove(vidmesh);
+				scene.add( vidmesh );
+
+
+				
+}
+
+let empty_val = "";
+let home_page = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Sproud_Knowledge.png';
+let introduction_class = 'https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Ftopics%2Fintro.html?alt=media&token=bbfe4977-54a9-4d1f-b943-9cc5b91a6ed6';
+
+
+let pplus = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/plus.png";
+let pminus = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/minus.png";
+let pexplain = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/explain.jpg";
+let ppractise = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/practise.png";
+let demovideoicon = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/demo1.jpg";
+let sk = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Sproud_Knowledge.png";
+
+	
+let speak = "what you speak is shown here";
+//intcls(-1,26,-20,25,2,2,mic,py_nav,true, "  "+speak,0.5,0,0,"DarkSlateBlue","white");	
+//lipmove(lc2,16,20,-23);
+
+intcls(intclsmesh46,-10,-10,-20,7,7,1.5,spoken_english_img,py_nav,true, c1,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-20,7,7,1.5,python_img,py_nav,true, c2,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-20,7,7,1.5,sk,py_nav,true, c3,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-20,7,7,1.5,mic,py_nav,true, c4,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-20,7,7,1.5,mic,introduction_class,true, c5,0,0,0,"green","white");
+
+
+
+//backstartnext(6,-20,-15,4,4,2,forward,py_nav,"next","",0,0,0,"","");
+
+backstartnext(7,-27,-25,4,4,4,forward,py_nav,"next","",0,-0.5,0,"","");
+//backstartnext(16,22,-23,4,4,4,start_teach,py_nav,"start","",0,-0.5,0,"","");
+backstartnext(-7,-27,-25,4,4,4,backword,py_nav,"back","",0,0.5,0,"","");
+//board
+//board("900px","1500px",-1,20,-30,0,0,0)
+///seTopics("900px","50px",-9,30,-30,0,0.5,0,home_page," 1. Introduction");
+
+
+
+
+
+
+				function board(w,h,x,y,z,rx,ry,rz,srcurl,topicname)
+                {
+					
+				//const btn_topics = document.createElement( 'div' );
+                const btn_topics = document.getElementById( 'ih' );
+                btn_topics.style.backgroundColor="DarkSlateGray";
+				btn_topics.style.width= w;
+				btn_topics.style.height= h;
+                btn_topics.style.borderRadius="10px";
+                btn_topics.style.marginTop = '-1em';
+
+				const board_trans = document.getElementById('google_translate_element');
+				board_trans.style.backgroundColor="DarkSlateGray";
+				board_trans.style.width= "10px";
+				board_trans.style.height= "10px";
+                board_trans.style.borderRadius="10px";
+                board_trans.style.marginTop = '-1em';
+				
+                //earthDiv.style.transform = "rotateX(90deg) translateY(15px) translateZ(-480px)";
+				btn_label = new CSS3DObject( btn_topics );
+				
+                btn_label.position.copy(pos);
+                btn_label.rotation.x =  rx;
+				btn_label.rotation.y =  ry;
+				btn_label.rotation.z =  rz;
+                btn_label.scale.set(0.035, 0.035, 100);
+				btn_label.position.set( x,y,z );
+				
+				scene.add( btn_label );
+
+				
+                }
+
+
+
+//change_topics.innerHTML=ic1p1+ic1p2;
+				
+
+
+//console.log("remove object  : "+removeo);
+//const earthGeometry = new THREE.SphereGeometry( EARTH_RADIUS, 16, 16 );
+function intcls(intclsvar,x,y,z,w,h,d,icon,navhtml,th,tp,rotx,roty,rotz,wc,tcn)
+{
+	
+	
+const texthead = th;
+const textp = tp;
+const mpm = {};
+let canvasTexture;
+let canvas, ctx;
+let texture_d;
+var f_loader = new THREE.FontLoader();
+
+mpm['specular'] = 0xffffff;
+mpm['shininess'] = 5;
+mpm['map'] = textureLoader.load( icon );
+
+if(texthead == false)
+{
+    //canvas = document.createElement('canvas');
+	canvas = document.createElement('canvas');
+    canvas.width = 700;
+	canvas.height = 75;
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle=wc;
+    ctx.fillRect(0, 0, 700, 700);
+    //ctx.textAlign = "center";
+    ctx.fillStyle=tcn;
+    ctx.font = "30px Arial";
+    ctx.fillText(textp, 1, 30);
+	const strDataURI = canvas.toDataURL("https://ksthreejs.s3.ap-south-1.amazonaws.com/913_165017.jpg");
+	const imag = new Image();
+	imag.onload = function(){
+         ctx.drawImage(imag, 10, 10);
+         ctx.font = "40pt Calibri";
+         ctx.fillText("My TEXT!", 20, 20);
+     };
+     
+	imag.src = strDataURI;
+    canvasTexture = new THREE.CanvasTexture( canvas );
+	//texture_d = new THREE.Texture( canvas );
+    mpm['map'] = canvasTexture;
+	//mpm['map'] = texture_d;
+	//mpm['map'] = THREE.ImageUtils.loadTexture( imag.src );
+	
+}
+//texture_d.needsUpdate = true;
+
+
+//const ctex = {map: canvasTexture};
+
+
+
+
+mpm['normalScale'] = new THREE.Vector2( 0.85, 0.85 );
+
+	
+
+				intclsgeometry = new THREE.BoxGeometry( w,h,d );
+				//const material = new THREE.MeshPhongMaterial();
+                intclsmaterial = new THREE.MeshPhongMaterial( 
+					mpm
+				 );
+
+				intclsvar = new THREE.InstancedMesh( intclsgeometry, intclsmaterial, count );
+				//intclsvar.uuid = intclsvar+"honey";
+				intclsvar.name = tp;
+				cubeuuid.push(intclsvar.name);
+				//console.log("uid == "+intclsvar.name);
+               
+                intclsvar.position.set( x,y,z );
+
+				let i = 0;
+				const offset = ( amount - 1 ) / 2;
+
+				const matrix = new THREE.Matrix4();
+
+				//matrix.setPosition( offset - 5, offset - 0, offset - 0 );
+
+				intclsvar.setMatrixAt( 1, matrix );
+				intclsvar.setColorAt( 1, color );
+				
+				intclsvar.rotation.x = rotx;
+				intclsvar.rotation.y = roty;
+				intclsvar.rotation.z = rotz;
+
+				//scene.remove(intclsvar);
+				scene.add( intclsvar );
+				
+				
+
+const a_c = 'click';
+const db_c = 'dblclick';
+
+var mouseEventHandle = db_c;
+if('ontouchstart' in document.documentElement === true)
+mouseEventHandle = 'touchstart';
+
+
+
+
+document.addEventListener( "click",onPointerMove  );
+
+//document.removeEventListener( "click",onPointerMove  );
+				
+			function onPointerMove( event ) 
+		{
+			
+			
+			if ( selectedObject ) {
+
+				//selectedObject.material.color.set( '#69f' );
+				selectedObject = null;
+
+			}
+
+			pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+			pointer.z = - ( event.clientZ / window.innerDepth ) * 2 - 1;
+
+			raycaster.setFromCamera( pointer, camera );
+
+			const intersects = raycaster.intersectObject( intclsvar );
+
+			if ( intersects.length > 0 ) {
+				
+
+
+				//console.log("Hit @ " + toString( intersects[0].point ) );
+				// change the color of the closest face.
+				//intersects[ 0 ].face.color.setRGB( 0.8 * Math.random() + 0.2, 0, 0 ); 
+				//intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
+				const res = intersects.filter( function ( res ) 
+				{
+
+					return res && res.object;
+
+				} )[ 0 ];
+
+				if ( res && res.object ) 
+				{
+					
+					camera.position.set( -2,2,23 );
+					//scene.remove( img_label );
+					
+					selectedObject = res.object;
+					//selectedObject.material.color.set( '#f00' );
+j = 0;					//ifd("900px","1200px",-10,15,-35,5,navhtml);
+if(tp == 0)
+{
+  
+	Interface.navd("");
+}					//console.log(tp);
+else if(tp == c1)
+{
+	Interface.navd("https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=20c88615-97d2-420b-9d9f-0796c0878bf5");
+}
+else if(tp == c2)
+{
+	Interface.navd("https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=20c88615-97d2-420b-9d9f-0796c0878bf5");
+	
+}			
+else if (tp == c3)
+{
+	Interface.navd("https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=20c88615-97d2-420b-9d9f-0796c0878bf5");
+}
+else if (tp == c4)
+{
+	Interface.navd("https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=20c88615-97d2-420b-9d9f-0796c0878bf5");
+}
+else if (tp == c5)
+{
+	Interface.navd("https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fclassroom3d.html?alt=media&token=20c88615-97d2-420b-9d9f-0796c0878bf5");
+}
+else if (tp == c6)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c7)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c8)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c9)
+{
+Interface.navd(spoken_english_classes);
+}
+else if (tp == c10)
+{
+Interface.navd(spoken_english_classes);
+}
+else if (tp == c11)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c12)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c13)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c14)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c15)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c16)
+{
+Interface.navd(spoken_english_classes);
+}
+else if (tp == c17)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c18)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c19)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c20)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c21)
+{
+Interface.navd(spoken_english_classes);
+}
+else if (tp == c22)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c23)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c24)
+{
+	Interface.navd(spoken_english_classes);
+}
+else if (tp == c25)
+{
+	Interface.navd(spoken_english_classes);
+}
+
+
+
+
+
+
+				}
+
+			}
+			
+
+		}
+}
+
+function allremoveo()
+{
+	for(let armi = 0;armi <= cubeuuid.length;armi++)
+	{
+	
+		var selectedObject = scene.getObjectByName(cubeuuid[armi]);
+		
+    	//scene.remove( selectedObject );
+		
+		//scene.remove(removeo[armi]);
+		disposeNode(selectedObject)
+		delete cubeuuid[armi];
+
+
+		
+	}
+	
+	
+}
+function removeEntity(object) {
+    var selectedObject = scene.getObjectByName(object.name);
+    scene.remove( selectedObject );
+    //animate();
+}
+function disposeNode(node) {
+    if (node instanceof THREE.Mesh) {
+      if (node.geometry) {
+        node.geometry.dispose();
+        node.geometry = undefined; // fixed problem
+      }
+
+      if (node.material) {
+        if (node.material instanceof THREE.MeshFaceMaterial || node.material instanceof THREE.MultiMaterial) {
+          node.material.materials.forEach( function(mtrl, idx) {
+            if (mtrl.map) mtrl.map.dispose();
+            if (mtrl.lightMap) mtrl.lightMap.dispose();
+            if (mtrl.bumpMap) mtrl.bumpMap.dispose();
+            if (mtrl.normalMap) mtrl.normalMap.dispose();
+            if (mtrl.specularMap) mtrl.specularMap.dispose();
+            if (mtrl.envMap) mtrl.envMap.dispose();
+
+            mtrl.dispose();
+            mrtl = undefined; // fixed problem
+          } );
+        }
+        else {
+          if (node.material.map) node.material.map.dispose();
+          if (node.material.lightMap) node.material.lightMap.dispose();
+          if (node.material.bumpMap) node.material.bumpMap.dispose();
+          if (node.material.normalMap) node.material.normalMap.dispose();
+          if (node.material.specularMap) node.material.specularMap.dispose();
+          if (node.material.envMap) node.material.envMap.dispose();
+
+          node.material.dispose();
+          node.material = undefined; // fixed problem
+        }
+      }
+    }
+    //console.log('node before removal: ', node);
+    scene.remove( node );
+	//renderer.renderLists.dispose();
+  //scene.dispose();
+  //renderer.dispose(); // ***EDIT*** improved even memory more original scene heap is 12.4 MB; add objects increases to 116 MB or 250 MB (different models), clearing always brings down to 13.3 MB ... there still might be some artifacts.  
+    node = undefined; // unnecessary
+  }
+
+  function disposeHierchy(node, callback) {
+    for (var i = node.children.length - 1; i >= 0; i--) {
+      var child = node.children[i];
+
+      disposeHierchy(child, callback);
+      callback(child);
+    }
+  }
+
+function doDispose (obj)
+    {
+        if (obj !== null)
+        {
+            for (var i = 0; i < obj.children.length; i++)
+            {
+                doDispose(obj.children[i]);
+            }
+            if (obj.geometry)
+            {
+                obj.geometry.dispose();
+                obj.geometry = undefined;
+            }
+            if (obj.material)
+            {
+                if (obj.material.map)
+                {
+                    obj.material.map.dispose();
+                    obj.material.map = undefined;
+                }
+                obj.material.dispose();
+                obj.material = undefined;
+            }
+        }
+        obj = undefined;
+    };
+
+function clearobj(oid)
+{
+	//myObject.name = "objectName";
+//let object = scene.getObjectByProperty( 'uuid', i );
+//let object = scene.getObjectByName("quadrant1");
+let object = scene.getObjectById( oid, true );
+object.geometry.dispose();
+object.material.dispose();
+scene.remove( object );
+renderer.renderLists.dispose();
+}
+
+
+//clearThree(scene);
+
+function clearThree(obj){
+  while(obj.children.length > 0)
+  { 
+    clearThree(obj.children[0])
+    obj.remove(obj.children[0]);
+  }
+  if(obj.geometry) obj.geometry.dispose()
+
+  if(obj.material){ 
+    //in case of map, bumpMap, normalMap, envMap ...
+    Object.keys(obj.material).forEach(prop => {
+      if(!obj.material[prop])
+        return         
+      if(obj.material[prop] !== null && typeof obj.material[prop].dispose === 'function')                                  
+        obj.material[prop].dispose()                                                        
+    })
+    obj.material.dispose()
+  }
+} 
+
+
+function backstartnext(x,y,z,w,h,d,icon,navhtml,th,tp,rotx,roty,rotz,wc,tcn)
+{
+	
+const texthead = th;
+const textp = tp;
+const mpm = {};
+let canvasTexture;
+let canvas, ctx;
+let texture_d;
+var f_loader = new THREE.FontLoader();
+
+mpm['specular'] = 0xffffff;
+mpm['shininess'] = 5;
+mpm['map'] = textureLoader.load( icon );
+
+
+
+
+//texture_d.needsUpdate = true;
+
+
+//const ctex = {map: canvasTexture};
+
+
+
+
+mpm['normalScale'] = new THREE.Vector2( 0.85, 0.85 );
+
+	
+				const geometry = new THREE.BoxGeometry( w,h,d );
+				//const material = new THREE.MeshPhongMaterial();
+                const material = new THREE.MeshPhongMaterial( 
+					mpm
+				 );
+
+				const mesh = new THREE.InstancedMesh( geometry, material, count );
+               
+                mesh.position.set( x,y,z );
+
+				let i = 0;
+				const offset = ( amount - 1 ) / 2;
+
+				const matrix = new THREE.Matrix4();
+
+				//matrix.setPosition( offset - 5, offset - 0, offset - 0 );
+
+				mesh.setMatrixAt( 1, matrix );
+				mesh.setColorAt( 1, color );
+				
+				mesh.rotation.x = rotx;
+				mesh.rotation.y = roty;
+				mesh.rotation.z = rotz;
+
+				
+				scene.add( mesh );
+const a_c = 'click';
+const db_c = 'dblclick';
+
+var mouseEventHandle = db_c;
+if('ontouchstart' in document.documentElement === true)
+mouseEventHandle = 'touchstart';
+
+document.addEventListener( a_c,onPointerMove  );
+			function onPointerMove( event ) 
+		{
+			if ( selectedObject ) {
+
+				//selectedObject.material.color.set( '#69f' );
+				selectedObject = null;
+
+			}
+
+			pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1.1;
+
+			raycaster.setFromCamera( pointer, camera );
+
+			const intersects = raycaster.intersectObject( mesh );
+
+			if ( intersects.length > 0 ) {
+
+				const res = intersects.filter( function ( res ) 
+				{
+
+					return res && res.object;
+
+				} )[ 0 ];
+
+				if ( res && res.object ) 
+				{
+					
+
+					selectedObject = res.object;
+					//selectedObject.material.color.set( '#f00' );
+					//ifd("900px","1200px",-10,15,-35,5,navhtml);
+					//console.log(tp);
+					
+
+		
+
+					
+if(texthead == "back")
+{
+//let demotrigger,starttrigger,beforetrigger,nexttrigger,pageplustrigger,pageminustrigger,explaintrigger,practisetrigger;
+	allremoveo();
+	j = 0;
+	//camera.position.set( 20,0,0 );
+    const decrease_Number = decNumber();
+	console.log(" decrease_Number : "+ decrease_Number);
+	//console.log(decrease_Number);
+	//notransseTopics('h1notrans4',"orange","50px","900px","50px",1,48,-30,0,0,0,home_page,decrease_Number);
+	//const test_d = loadclass[0];
+	//test_d;
+	if(decrease_Number == 0)
+	{
+        sc1();
+	}
+	else if(decrease_Number == 1)
+	{
+		sc1();
+	}
+	else if(decrease_Number == 2)
+	{
+        sc2();
+	}
+	else if(decrease_Number == 3)
+	{
+		sc3();
+	}
+	else if(decrease_Number == 4)
+	{
+		sc4();
+	}
+	else if(decrease_Number == 5)
+	{
+		sc5();
+         
+	}
+	
+	
+	
+}
+
+	
+	
+
+else if(texthead == "next")
+{
+	allremoveo();
+	j = 0;
+	//camera.position.set( -20,0,0 );
+    const increase_Number = incNumber();
+	console.log("increase_Number : "+increase_Number)
+
+
+	
+	
+	//console.log(increase_Number);
+	//notransseTopics('h1notrans4',"orange","50px","900px","50px",1,48,-30,0,0,0,home_page,increase_Number);
+	//loadclass[2];
+	//func2();
+	if(increase_Number == 0)
+	{
+        sc1();	
+	}
+	else if(increase_Number == 1)
+	{
+        sc1();
+	}
+	else if(increase_Number == 2)
+	{
+		sc2();
+	}
+	else if(increase_Number == 3)
+	{
+		sc3();
+	}
+	else if(increase_Number == 4)
+	{
+        sc4();
+	}
+	else if(increase_Number == 5)
+	{
+        sc5();	
+        
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+				
+
+			}
+			
+
+		}
+}
+//nametexture();
+//font_texture_d();
+
+
+//yourFunction();
+
+
+
+//clearThree(scene);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function yourFunction(){
+    // do whatever you like here
+	if(db1 == "stoped and iloveyoudeepu")
+	{
+	//console.log("loop"+db1);
+	//clearTimeout(1000);
+	teachanimspeakb()
+	//alert("now you can start speak to practise");
+	//Interface.t_t_s("now you can start speak to practise  ","false");
+	}
+	else
+	{
+		//console.log("hii"+db1);
+
+        setTimeout(yourFunction, 1000);
+	}
+	
+}
+
+
+
+	
+}
+
+
+const talkinggirl = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/Standing+Arguing.fbx';
+const teachau = 'https://ksthreejs.s3.ap-south-1.amazonaws.com/Saved+Pictures/teachauragent.glb';
+const char_kn = "https://ksthreejs.s3.ap-south-1.amazonaws.com/sproudknowledgecontentdata/KnightCharacter+(1).gltf";
+//const teachau = "https://firebasestorage.googleapis.com/v0/b/health-report-334d5.appspot.com/o/sproud_knowledge_js_html_css_codes%2Fcourses%2Fmodules%2Fteachauragent.glb?alt=media&token=f453e1b6-5345-4927-9b39-55180bacc6c6";
+const teacherd = "teacher.glb";
+const gltfLoader = new GLTFLoader();
+    gltfLoader.load(teachau, (gltf) => {
+      root = gltf.scene;
+      root.position.x=0;
+      root.position.y=-30;
+      root.position.z=-25;
+      //root.forward = true;
+      //root.moveup;
+      //root.translateZ(10);
+      //root.width=1;
+	  //root.height = 0.5;
+      root.scale.x=0.1;
+      root.scale.y=0.1;
+      root.scale.z=0.1;
+	  root.rotation.y = 0;
+      scene.add(root);
+
+	  //mixer = new THREE.AnimationMixer( gltf.scene );
+	  mixer = new THREE. AnimationMixer( root );
+	  
+        
+        gltf.animations.forEach( ( clip ) => {
+          
+            mixer.clipAction( clip ).play();
+			
+          
+        } );
+
+	});
+
+
+
+function activateAllActions() {
+
+				//setWeight( idleAction, settings[ 'modify idle weight' ] );
+				//setWeight( walkAction, settings[ 'modify walk weight' ] );
+				setWeight( runAction, settings[ 'modify run weight' ] );
+
+				//actions.forEach( function ( action ) {
+
+					//action.play();
+
+				//} );
+
+			}
+
+
+
+  {
+    const wp1 = "https://ksthreejs.s3.ap-south-1.amazonaws.com/wp3.jpg";  
+    const wp2 = "https://ksthreejs.s3.ap-south-1.amazonaws.com/wp2.jpg";  
+    const classd ="https://ksthreejs.s3.ap-south-1.amazonaws.com/Select_courses/class.png";
+    const classd1 = "https://threejsfundamentals.org/threejs/resources/images/equirectangularmaps/tears_of_steel_bridge_2k.jpg";
+    const class3d = "https://ksthreejs.s3.ap-south-1.amazonaws.com/Select_courses/rcr1.png";
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load(
+       class3d,
+      () => {
+        const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
+        rt.fromEquirectangularTexture(renderer, texture);
+        scene.background = rt.texture;
+      });
+  }
+
+
+
+
+
+
+				
+
+ 
+
+function sc1()
+{
+	
+intcls(intclsmesh46,-10,-10,-20,7,7,1.5,spoken_english_img,py_nav,true, c1,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-20,7,7,1.5,python_img,py_nav,true, c2,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-20,7,7,1.5,sk,py_nav,true, c3,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-20,7,7,1.5,mic,py_nav,true, c4,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-20,7,7,1.5,mic,introduction_class,true, c5,0,0,0,"green","white");
+
+}
+function sc2()
+{
+	
+intcls(intclsmesh46,-10,-10,-30,7,7,1.5,sk,py_nav,true, c6,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-30,7,7,1.5,sk,py_nav,true, c7,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-30,7,7,1.5,sk,py_nav,true, c8,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-30,7,7,1.5,mic,py_nav,true, c9,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-30,7,7,1.5,mic,introduction_class,true, c10,0,0,0,"green","white");
+
+}
+function sc3()
+{
+	
+intcls(intclsmesh46,-10,-10,-20,7,7,1.5,sk,py_nav,true, c11,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-20,7,7,1.5,sk,py_nav,true, c22,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-20,7,7,1.5,sk,py_nav,true, c13,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-20,7,7,1.5,mic,py_nav,true, c14,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-20,7,7,1.5,mic,introduction_class,true, c15,0,0,0,"green","white");
+
+}
+function sc4()
+{
+
+intcls(intclsmesh46,-10,-10,-20,7,7,1.5,sk,py_nav,true, c16,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-20,7,7,1.5,sk,py_nav,true, c17,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-20,7,7,1.5,sk,py_nav,true, c18,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-20,7,7,1.5,mic,py_nav,true, c19,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-20,7,7,1.5,mic,introduction_class,true, c20,0,0,0,"green","white");
+
+}
+function sc5()
+{
+	
+intcls(intclsmesh46,-10,-10,-20,7,7,1.5,sk,py_nav,true, c21,0,0,0,"BlueViolet","white");
+intcls(intclsmesh47,10,-10,-20,7,7,1.5,sk,py_nav,true, c22,0,0,0,"Blue","white");
+intcls(intclsmesh48,-5,0,-20,7,7,1.5,sk,py_nav,true, c23,0,0,0,"Aqua","black");
+intcls(intclsmesh49,5,0,-20,7,7,1.5,mic,py_nav,true, c44,0,0,0,"AntiqueWhite","black");
+intcls(intclsmesh50,0,10,-20,7,7,1.5,mic,introduction_class,true, c25,0,0,0,"green","white");
+
+}
+
+
+
+
+function animatespeak(speechTextwithtime)
+{
+	teachanimspeaka()
+	speech_all_classes(speechTextwithtime);
+	teachanimspeak(speechTextwithtime)
+}
+
+function teachanimspeaka()
+{
+ 
+		delta = clock.start();
+		//lipmove("videoplay",20);
+	
+}
+
+
+
+function teachanimspeak(deltime)
+{
+ //delta = clock.start();
+ const delaytime = wordtime(deltime)
+	setTimeout(function() {
+         //delta = clock.getDelta();
+		 delta = clock.start();
+		 delta = clock.stop();
+		 //lipmove("videostop",20);
+		
+		//alert("hello");
+    }, delaytime);
+}
+
+function wordtime(wtc)
+{
+    const setNumWordsInText = b => {
+  let s = b
+  s = s.replace(/(^\s*)|(\s*$)/gi, "")
+  s = s.replace(/[ ]{2,}/gi, " ")
+  s = s.replace(/\n /, "\n")
+  return s.split(" ").length
+}
+
+const updateWPM = (t, w) => (w / t) * 60
+
+const txt = wtc;
+const numWordsInText = setNumWordsInText(txt)
+const seconds = 3
+const wpm = updateWPM(seconds, numWordsInText)
+//console.log(wpm*27)
+return wpm*25
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				labelRenderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+animate();
+function animate() {
+
+				requestAnimationFrame( animate );
+
+				//moon.position.set( Math.sin( elapsed ) * 5, 0, Math.cos( elapsed ) * 5 );
+                controls.update();
+				renderer.render( scene, camera );
+				//renderer.renderLists.dispose();
+				labelRenderer.render( scene, camera );
+				//labelRenderer.renderLists.dispose();
+				animplay();
+
+				
+
+
+				// clean up
+				
+				//geometry.dispose();
+				//material.dispose();
+				//texture.dispose();
+
+				//for ( let ai = 0; ai <= memoryo.length; ai ++ ) {
+
+					//const amesh = memoryo[ ai ];
+					//amesh.material.dispose();
+
+				//}
+
+
+			}
+            //requestAnimationFrame( animate );
+
+function animplay()
+{
+				const elapsed = clock.getElapsedTime();
+
+				//const delta = clock.getDelta();
+				delta = clock.stop();
+				//delta.autoStart();
+  
+  				if ( mixer ) mixer.update( elapsed );
+}		
+
+
+
+
+}
+}
+
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

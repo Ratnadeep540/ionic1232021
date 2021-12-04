@@ -1,0 +1,61 @@
+#ioninput1{
+    --ion-background-color:Tomato;
+    color:grey;
+    left:20px;
+    border:2px solid green;
+    height:30px;
+    width:300px;
+    top:100px;
+    margin-left:center;
+    //margin-right:25%;
+    text-align: left;
+    margin-top:10px;
+    border-radius:7px;
+  }
+  #ioninput{
+    border:2px solid orange;
+    border-radius:7px;
+    height:30px;
+    margin:center;
+    width:300px;
+    text-align: left;
+    margin-top:10px;
+    margin-left:50px;
+    color:white;
+    
+  }
+  
+  :host ::ng-deep #ioninput input::-webkit-input-placeholder {
+    color: rgba(0,255,0, 0.985) !important;
+}
+
+  #inpcss{
+    text-align:center;
+  }
+#regcss{
+  color:red;
+  text-align:center;
+}
+  #registerbtnn{
+      //margin-top:120px;
+      margin-left:-180px;
+      height:25px;
+      border-radius:20px;
+      //position:fixed;
+  }
+  #ifaccbtn{
+    height:20px;
+    width:60px;
+    margin-top:-5px;
+    margin-left:-200px;
+  }
+  #ifaccbtn1{
+   
+    margin-top:120px;
+    text-align:center;
+    margin-left:180px;
+    height:25px;
+
+
+  }
+ 

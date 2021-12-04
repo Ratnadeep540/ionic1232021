@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>REST API, End Point,  jsondata</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div>
+<h1 style="text-align:center; color: red;">REST API</h1>
+<h2 style="margin-left:5px; color: orange;">REST stands for Representational state transfer</h2>
+<img src="https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/restapi.png"  width="500" height="600">
+<h2 style="text-align:center; color: red;">end point or end path</h2>
+<h2 style="margin-left:5px; color: orange;">what is url</h2>
+<h2 style="text-align:center; color: red;">url:Uniform Resource Locator</h2>
+<h2 style="text-align:center; color: red;">Base url + end point = url</h2>
+<h2 style="text-align:center; color: green;">baseurl(http://localhost:8100) </h2>
+<h2 style="text-align:center; color: green;">+ </h2>
+<h2 style="text-align:center; color: green;">endpath(/jsondata )</h2>
+<h2 style="text-align:center; color: green;"> = </h2>
+<h2 style="text-align:center; color: green;">http://localhost:8100/jsondata</h2>
+
+<h2 style="text-align:center; color: red;">examples of urls</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/he.png</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/she.png</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/t_I.png</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/t_U.png</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/t_g1.png</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/t_g1.png</h2>
+<h2 style="text-align:center; color: red;">examples of base url</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath</h2>
+<h2 style="margin-left:5px; color: orange;">https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath</h2>
+<h2 style="text-align:center; color: red;">examples of end point or end path</h2>
+<p style="margin-left:5px; color: orange;">/he.png</p>
+<p style="margin-left:5px; color: orange;">/she.png</p>
+<p style="margin-left:5px; color: orange;">/t_I.png</p>
+<p style="margin-left:5px; color: orange;">/t_U.png</p>
+<p style="margin-left:5px; color: orange;">/t_g1.png</p>
+<br>
+<h2 style="margin-left:5px; color: orange;">url = basepath+end path</h2>
+<ion-input id="basepathinp"  value="https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath"></ion-input>
+<h1 style="margin-left:39px;">+</h1>
+<ion-input id="endpath"  value="/he.png"></ion-input>
+<h1 style="margin-left:39px;">=</h1>
+<ion-input id="endpath" #endpathinp value="https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/he.png"></ion-input>
+<ion-button (click)="urlendpath(endpathinp.value)" color="success" id="registerbtnn">end path</ion-button>
+
+<img #imgendpathinp src="https://ksthreejs.s3.ap-south-1.amazonaws.com/testendpath/he.png"  width="300" height="300">
+
+</div>
+<br><br>
+<h2 style="text-align:center; color: red;">JSON data</h2>
+<ion-input id="ioninput" #inpid value="ID"></ion-input>
+<ion-input id="ioninput" #inpname value="Name"></ion-input>
+<ion-input id="ioninput" #inpemail value="Email"></ion-input>
+<ion-input id="ioninput" #inpgender value="Gender"></ion-input>
+<ion-button (click)="addemp(inpid.value,inpname.value,inpemail.value,inpgender.value)" color="success" id="registerbtnn">add JSon data</ion-button>
+
+<div class="container">
+  <h1>Display json object data in angular</h1>
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams">
+        <td>{{ team.id }}</td>
+        <td>{{ team.name }}</td>
+        <td>{{ team.email }}</td>
+        <td>{{ team.gender }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</ion-content>

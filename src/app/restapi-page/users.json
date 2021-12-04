@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Deepu",
+      "email": "deepu@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": 2,
+      "name": "Ratnadeep",
+      "email": "ratnadeepdirsipam@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": 3,
+      "name": "honey",
+      "email": "honey@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": 4,
+      "name": "venkat",
+      "email": "ventatsai@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": 5,
+      "name": "hari priya",
+      "email": "haripriya@gmail.com",
+      "gender": "female"
+    },
+    {
+      "id": "6",
+      "name": "deep",
+      "email": "deep@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": "7",
+      "name": "test",
+      "email": "test@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": "tCZBft-"
+    },
+    {
+      "id": "bjQRgp8"
+    },
+    {
+      "id": "8",
+      "name": "hello",
+      "email": "hello@gmail.com",
+      "gender": "male"
+    },
+    {
+      "id": "9",
+      "name": "t",
+      "email": "t@gmail.com",
+      "gender": "female"
+    }
+  ]
+}
