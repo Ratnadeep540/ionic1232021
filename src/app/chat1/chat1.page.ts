@@ -11,5 +11,6 @@ export class Chat1Page implements OnInit {
 
   ngOnInit() {
   }
+  hello ="";
 
 }
